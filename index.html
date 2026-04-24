@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>암호학의 역사</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <span class="sidebar-title">MENU</span>
+        <button id="toggle-btn">☰</button>
+      </div>
+      <ul class="menu-list">
+        <li><a href="index.html">홈</a></li>
+        <li><a href="Ancient.html">고대</a></li>
+        <li><a href="Medieval.html">중세</a></li>
+        <li><a href="earlyModern.html">근현대</a></li>
+        <li><a href="Modern.html">현대</a></li>
+        <li class="team-tab"><a href="about.html">팀 소개</a></li>
+      </ul>
+    </nav>
+
+    <div class="main-content" id="main-content">
+      <div class="container">
+        <header>
+          <h1>암호학의 역사</h1>
+        </header>
+
+        <div class="phase Cryptography">
+          <div class="phase-header">
+            <h2>암호학이란?</h2>
+          </div>
+          <p
+            style="
+              font-size: 0.9rem;
+              color: #475569;
+              text-align: center;
+              line-height: 1.7;
+            "
+          >
+            정보를 보호하기 위한 수학적, 언어학적인 방법을 다루는 학문
+          </p>
+        </div>
+
+        <div class="phases-wrapper">
+          <div class="phase Ancient" onclick="location.href = 'Ancient.html'">
+            <div class="phase-header"><h2>고대</h2></div>
+            <div class="card-container">
+              <div class="card main">스키테일</div>
+              <div class="card">카이사르 암호</div>
+              <div class="card">스테가노그래피</div>
+            </div>
+          </div>
+
+          <div class="phase Medieval" onclick="location.href = 'Medieval.html'">
+            <div class="phase-header"><h2>중세</h2></div>
+            <div class="card-container">
+              <div class="card main">알베르티 암호</div>
+              <div class="card">비즈네르 암호</div>
+            </div>
+          </div>
+
+          <div
+            class="phase EarlyModern"
+            onclick="location.href = 'earlyModern.html'"
+          >
+            <div class="phase-header"><h2>근현대</h2></div>
+            <div class="card-container">
+              <div class="card main"></div>
+              <div class="card"></div>
+            </div>
+          </div>
+
+          <div class="phase Modern" onclick="location.href = 'Modern.html'">
+            <div class="phase-header"><h2>현대</h2></div>
+            <div class="card-container">
+              <div class="card main">DES</div>
+              <div class="card">AES</div>
+              <div class="card">RSA</div>
+              <div class="card">SHA-256</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

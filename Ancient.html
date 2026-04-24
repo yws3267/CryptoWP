@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>고대 암호학</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="ancient.css" />
+  </head>
+  <body>
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <span class="sidebar-title">MENU</span>
+        <button id="toggle-btn">☰</button>
+      </div>
+      <ul class="menu-list">
+        <li><a href="index.html">홈</a></li>
+        <li><a href="Ancient.html">고대</a></li>
+        <li><a href="Medieval.html">중세</a></li>
+        <li><a href="earlyModern.html">근현대</a></li>
+        <li><a href="Modern.html">현대</a></li>
+        <li class="team-tab"><a href="about.html">팀 소개</a></li>
+      </ul>
+    </nav>
+
+    <div class="main-content" id="main-content">
+      <div class="container">
+        <header class="ancient-header">
+          <h1>고대 암호학</h1>
+          <p></p>
+        </header>
+
+        <div class="ancient-grid">
+          <div class="crypto-card">
+            <div class="card-header">
+              <span class="crypto-tag">BC 4세기</span>
+              <h2>스키테일 (Scytale)</h2>
+            </div>
+            <img src="img6.webp" alt="스키테일 암호 원리" class="crypto-img" />
+            <p>
+              기원전 450년 경 그리스인들이 고안해 낸 사실상 가장 오래된
+              암호이다. 전쟁터에 나가있는 군대에 비밀메시지를 전할 때 암호를
+              사용했다. 평범한 일정한 너비의 종이테이프를 원통(막대)에 서로
+              겹치지 않도록 감아, 테이프 위에 세로쓰기로 통신문을 기입하는
+              방식이며, 테이프를 풀어 보아서는 내용을 전혀 판독할 수 없으나,
+              통신문을 기록할 때 사용한 것과 생김새가 같고 동일한 지름을 가진
+              원통에 감아보면 내용을 읽을 수 있게 고안되었다.
+            </p>
+            <div class="concept-box">
+              <strong>핵심 원리:</strong> 문자 위치 재배열 (Transposition)
+            </div>
+          </div>
+
+          <div class="crypto-card">
+            <div class="card-header">
+              <span class="crypto-tag">BC 1세기</span>
+              <h2>카이사르 암호 (Caesar)</h2>
+              <img src="img7.png" alt="카이사르 암호 원반" class="crypto-img" />
+            </div>
+            <p>
+              암호학에서 다루는 간단한 치환암호의 일종이다. 기원전 100년경에
+              만들어졌다. 카이사르 암호는 암호화하고자 하는 내용을 알파벳별로
+              일정한 거리만큼 밀어서 다른 알파벳으로 치환하는 방식이다. 카이사르
+              암호는 단순하고 간단하여 일반인도 쉽게 사용할 수 있지만, 철자의
+              빈도와 자주 사용되는 단어와 형태를 이용하면 쉽게 풀 수 있다는
+              단점이 있다.
+            </p>
+            <div class="concept-box">
+              <strong>핵심 원리:</strong> 단일 치환 (Substitution)
+            </div>
+          </div>
+
+          <div class="crypto-card">
+            <div class="card-header">
+              <span class="crypto-tag">BC 4세기</span>
+              <h2>스테가노그래피</h2>
+            </div>
+            <img src="img8.png" alt="스테가노그래피 예시" class="crypto-img" />
+            <p>
+              기원전 440년 경부터 사용됬다. 숨겨진 정보의 존재가 의심하지 않는
+              사람의 검사에는 드러나지 않도록 다른 메시지나 물리적 개체 내에
+              정보를 나타내는 기술이다. 노예의 머리에 문신을 새기거나 밀랍 판
+              아래에 글을 쓰는 등의 기법이 활용됬다.
+            </p>
+            <div class="concept-box">
+              <strong>핵심 원리:</strong> 메시지 은닉 (Hiding)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

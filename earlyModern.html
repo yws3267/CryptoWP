@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>근현대 암호</title>
+    <link rel="stylesheet" href="index.css" />
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+        background: #fcf7f2;
+        color: black;
+      }
+
+      .wrap {
+        max-width: 1100px;
+        margin: 60px auto;
+        padding: 0 20px 60px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 40px;
+        color: black;
+      }
+
+      .timeline {
+        position: relative;
+        height: 300px;
+        background: #fffdfb;
+        border-radius: 12px;
+        box-shadow: 0 12px 30px rgba(120, 94, 78, 0.08);
+        overflow: hidden;
+        border: 1px solid rgb(233, 233, 255);
+      }
+
+      .timeline-line {
+        position: absolute;
+        left: 8%;
+        right: 8%;
+        top: 50%;
+        height: 8px;
+        background: linear-gradient(90deg, blue, blue);
+        border-radius: 999px;
+        transform: translateY(-50%);
+      }
+
+      .event {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .dot {
+        width: 22px;
+        height: 22px;
+        margin: 0 auto;
+        border-radius: 50%;
+        background: #fffefd;
+        border: 6px solid rgb(114, 114, 254);
+        box-shadow: 0 0 0 6px rgba(173, 171, 255, 0.45);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .event:hover .dot {
+        transform: scale(1.08);
+        box-shadow: 0 0 0 10px rgba(242, 209, 184, 0.55);
+      }
+
+      .label {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: rgb(50, 48, 48);
+      }
+
+      .event.top .label {
+        bottom: 34px;
+      }
+
+      .event.bottom .label {
+        top: 34px;
+      }
+
+      .tooltip {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        min-width: 140px;
+        padding: 10px 12px;
+        border-radius: 12px;
+        background: rgba(108, 106, 104, 0.92);
+        color: #fffaf7;
+        font-size: 0.85rem;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        pointer-events: none;
+      }
+
+      .tooltip::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        width: 10px;
+        height: 10px;
+        background: rgba(108, 106, 104, 0.92);
+        transform: translateX(-50%) rotate(45deg);
+      }
+
+      .event.top .tooltip {
+        top: 36px;
+      }
+
+      .event.top .tooltip::after {
+        top: -5px;
+      }
+
+      .event.bottom .tooltip {
+        bottom: 36px;
+      }
+
+      .event.bottom .tooltip::after {
+        bottom: -5px;
+      }
+
+      .event:hover .tooltip {
+        opacity: 1;
+      }
+
+      .detail-panel {
+        margin-top: 28px;
+        padding: 0 24px;
+        background: #fffdfb;
+        border-radius: 16px;
+        box-shadow: 0 12px 30px rgba(120, 94, 78, 0.08);
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: translateY(24px);
+        transition: max-height 0.45s ease, opacity 0.45s ease,
+          transform 0.45s ease, padding 0.45s ease;
+        border: 1px solid #f1dfd4;
+      }
+
+      .detail-panel.active {
+        max-height: 500px;
+        opacity: 1;
+        transform: translateY(0);
+        padding: 24px;
+      }
+
+      .detail-panel img {
+        width: 250px;
+        height: 200px;
+        border-radius: 14px;
+        object-fit: cover;
+        flex-shrink: 0;
+      }
+
+      .detail-text h2 {
+        margin: 0 0 10px;
+        color: black;
+      }
+
+      .detail-text p {
+        margin: 0;
+        line-height: 1.7;
+        color: black;
+        white-space: pre-line;
+      }
+
+      @media (max-width: 768px) {
+        .timeline {
+          height: 360px;
+        }
+
+        .label {
+          white-space: normal;
+          width: 90px;
+          font-size: 0.82rem;
+        }
+
+        .detail-panel {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .detail-panel img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <span class="sidebar-title">MENU</span>
+        <button id="toggle-btn">☰</button>
+      </div>
+      <ul class="menu-list">
+        <li><a href="index.html">홈</a></li>
+        <li><a href="Ancient.html">고대</a></li>
+        <li><a href="Medieval.html">중세</a></li>
+        <li><a href="earlyModern.html">근현대</a></li>
+        <li><a href="Modern.html">현대</a></li>
+        <li class="team-tab"><a href="about.html">팀 소개</a></li>
+      </ul>
+    </nav>
+
+    <div class="main-content" id="main-content">
+      <div class="container">
+        <div class="wrap">
+          <h1>근현대 암호학의 역사</h1>
+          <h2 style="text-align: center">시대에 해당하는 원을 클릭</h2>
+
+          <div class="timeline">
+            <div class="timeline-line"></div>
+
+            <div class="event top" style="left: 12%" data-key="classical">
+              <div class="label">고전 암호학</div>
+              <div class="dot"></div>
+              <div class="tooltip">~19세기 말, 제1차 세계대전 이전</div>
+            </div>
+
+            <div class="event bottom" style="left: 28%" data-key="mechanical">
+              <div class="label">기계식 암호학</div>
+              <div class="dot"></div>
+              <div class="tooltip">제1·제2차 세계대전</div>
+            </div>
+
+            <div class="event top" style="left: 44%" data-key="theory">
+              <div class="label">이론적 암호학의 기초</div>
+              <div class="dot"></div>
+              <div class="tooltip">1940~1960년대</div>
+            </div>
+
+            <div class="event bottom" style="left: 60%" data-key="modern">
+              <div class="label">현대 암호학</div>
+              <div class="dot"></div>
+              <div class="tooltip">1970년대 이후</div>
+            </div>
+
+            <div class="event top" style="left: 76%" data-key="advanced">
+              <div class="label">응용 및 고급 암호학</div>
+              <div class="dot"></div>
+              <div class="tooltip">1990년대 이후</div>
+            </div>
+          </div>
+
+          <div class="detail-panel" id="detailPanel">
+            <img id="detailImage" src="img_1.jpg" alt="설명 이미지" />
+            <div class="detail-text">
+              <h2 id="detailTitle"></h2>
+              <p id="detailDescription"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const detailData = {
+        mechanical: {
+          title: '기계식 암호학',
+          image: 'img1.jpg',
+          description:
+            '근대에 들어서면서 기계 기술이 발전하게 되었고, 이에 따라 암호를 만드는 과정도 자동화되기 시작했다. 이전에는 사람이 직접 계산해서 암호를 만들었다면, 이 시기부터는 기계를 이용해서 훨씬 더 빠르고 복잡한 방식으로 암호를 생성할 수 있게 되었다. 그래서 단순한 수작업으로는 암호를 해독하는 것이 어려워졌다. 대표적인 예로 에니그마(Enigma)가 있다. 이 장치는 여러 개의 로터(rotor)와 반사기(reflector)로 이루어져 있는데, 키를 누를 때마다 로터가 회전하면서 암호 규칙이 계속 바뀐다. 그래서 같은 문자를 입력하더라도 매번 다른 문자로 바뀔 수 있다. 이런 점에서 에니그마는 단순한 치환 암호가 아닌, 계속 변화하는 다중치환 암호라고 볼 수 있다. 이전의 암호학과 비교했을 때 가장 큰 차이는 암호가 더 이상 단순한 기술이 아닌 수학과 공학적인 문제로 바뀌었다는 점이다. 암호를 해독하려면 가능한 설정을 하나씩 따져보는 조합적인 접근이 필요했고, 이를 빠르게 처리하기 위해 초기 형태의 계산 기계도 사용되었다. 하지만 이런 기계식 암호도 완벽하지는 않았다. 예를 들어 에니그마는 구조상 어떤 문자도 자기 자신으로 암호화되지 않는 특징이 있다. 즉, 평문과 암호문이 같은 문자가 되는 경우가 절대 없다. 이 특징은 틀린 설정을 빠르게 걸러낼 수 있는 단서가 되어서 암호 해독에 도움이 되었다. 결과적으로 에니그마는 당시에는 매우 강력한 암호였지만, 이런 구조적인 특징과 여러 분석 방법이 결합되면서 완전히 안전하지는 않다는 것이 밝혀졌고, 실제로 제2차 세계대전에서 암호 해독에 중요한 역할을 하게 되었다.',
+        },
+        theory: {
+          title: '이론적 암호학의 기초',
+          image: 'img2.jpg',
+          description:
+            '제2차 세계대전 이후, 암호학은 단순히 암호를 만들고 해독하는 기술이 아니라, 암호의 안전성을 수학적으로 정의하고 분석하는 학문으로 변화하기 시작했다. 이전에는 암호가 얼마나 복잡해 보이는지를 기준으로 안전성을 판단했다면, 이 시기부터는 어떤 조건에서 안전한지에 대해 명확하게 정의하려는 시도가 이루어졌다. 이 과정에서 암호를 확률적인 대상으로 보고, 암호문이 평문에 대한 정보를 얼마나 숨기고 있는지를 분석하는 방식이 등장하였다. 특히 정보량을 수치로 표현하는 개념이 도입되면서, 암호가 실제로 얼마나 정보를 보호하는지를 정량적으로 다룰 수 있게 되었다. 이러한 변화는 암호를 단순히 설계하는 것을 넘어서, 그 안전성을 수학적으로 설명하고 증명하려는 방향으로 이어졌으며, 이후 현대 암호학으로 발전하는 중요한 기반이 되었다. 이러한 기준을 바탕으로 다양한 암호 방식이 등장했다. 대표적으로 DES 같은 대칭키 암호와 RSA 같은 공개키 암호가 있다. 특히 공개키 암호는 서로 비밀 키를 미리 주고받지 않아도 안전하게 통신할 수 있게 해주었다는 점에서 큰 의미가 있다. 또한 이 시기에는 암호의 역할도 넓어졌다. 단순히 내용을 숨기는 것뿐만 아니라, 데이터가 변하지 않았는지 확인하거나(무결성), 사용자의 신원을 확인하는 기능도 중요해졌다. 이를 위해 해시 함수나 전자서명 같은 기술도 함께 발전했다. 이렇게 암호학은 수학적인 이론을 바탕으로 하면서도 실제 컴퓨터 환경에서 사용할 수 있는 기술로 발전했고, 오늘날 인터넷 보안의 기본이 되었다.',
+        },
+        modern: {
+          title: '현대 암호학',
+          image: 'img3.jpg',
+          description:
+            '1이전 단계에서 암호의 안전성을 수학적으로 설명하려는 기반이 만들어졌다면, 이후에는 이를 바탕으로 실제로 사용할 수 있는 암호 기술이 발전하기 시작했다. 특히 컴퓨터가 널리 사용되면서 암호학도 이론뿐만 아니라 실제 통신과 데이터 보호에 적용되는 방향으로 바뀌었다. 이 시기의 가장 큰 변화는 암호의 안전성을 판단하는 기준이다. 이전에는 완전히 해독이 불가능한지를 중요하게 생각했다면, 이제는 해독이 가능하더라도 현실적인 시간 안에 계산할 수 없다면 안전하다고 보는 방식이 사용되었다.',
+        },
+        advanced: {
+          title: '응용 및 고급 암호학',
+          image: 'img4.jpg',
+          description:
+            '현대 암호학이 실제 통신과 데이터 보호에 널리 사용되기 시작한 이후, 암호학은 단순히 정보를 숨기는 기술을 넘어서 더 다양한 문제를 해결하는 방향으로 발전했다. 이 시기에는 암호를 이용해 여러 사람이 서로 신뢰할 수 없는 상황에서도 안전하게 협력할 수 있도록 하는 기술들이 등장했다. 예를 들어, 내용을 공개하지 않고도 어떤 사실이 맞다는 것을 증명하는 방법이나, 여러 사람이 각자의 정보를 공개하지 않고 함께 계산을 수행하는 방법 등이 연구되었다. 또한 인터넷과 모바일 환경이 발전하면서 암호학의 역할은 더욱 커졌다. 사용자 인증, 전자 결제, 데이터 무결성 확인 등 다양한 분야에서 암호 기술이 필수적으로 사용되기 시작했다. 특히 블록체인 기술의 등장도 중요한 변화 중 하나이다. 비트코인과 같은 시스템은 중앙 기관 없이도 거래의 신뢰를 유지할 수 있도록 암호 기술을 활용한 대표적인 사례이다.최근에는 양자컴퓨터의 발전 가능성에 대비해 기존 암호를 대체할 수 있는 새로운 방식도 연구되고 있다. 이는 앞으로 암호학이 계속해서 변화하고 발전할 것임을 보여준다.',
+        },
+      };
+
+      const panel = document.getElementById('detailPanel');
+      const image = document.getElementById('detailImage');
+      const title = document.getElementById('detailTitle');
+      const description = document.getElementById('detailDescription');
+
+      document.querySelectorAll('.event').forEach((event) => {
+        event.addEventListener('click', () => {
+          const key = event.dataset.key;
+          const data = detailData[key];
+
+          image.src = data.image;
+          image.alt = data.title;
+          title.textContent = data.title;
+          description.textContent = data.description;
+
+          panel.classList.add('active');
+          panel.scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+          });
+        });
+      });
+    </script>
+    <script src="index.js"></script>
+  </body>
+</html>
