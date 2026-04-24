@@ -1,2 +1,1 @@
 "# CrytpoWP"
-"# CryptoWP" 
