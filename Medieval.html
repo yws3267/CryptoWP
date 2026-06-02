@@ -12,15 +12,6 @@
         margin-bottom: 48px;
         border-bottom: 1px solid #e5e7eb;
         padding-bottom: 20px;
-        opacity: 0;
-        transform: translateY(20px);
-        transition:
-          opacity 0.6s ease,
-          transform 0.6s ease;
-      }
-      .page-header.visible {
-        opacity: 1;
-        transform: translateY(0);
       }
       .page-header h1 {
         font-size: 1.8rem;
@@ -38,15 +29,6 @@
         align-items: center;
         gap: 16px;
         margin-bottom: 24px;
-        opacity: 0;
-        transform: translateY(16px);
-        transition:
-          opacity 0.5s ease,
-          transform 0.5s ease;
-      }
-      .section-divider.visible {
-        opacity: 1;
-        transform: translateY(0);
       }
       .section-divider span {
         font-size: 0.72rem;
@@ -70,19 +52,10 @@
         border: 1.5px solid #e5e7eb;
         border-radius: 12px;
         overflow: hidden;
-        margin-bottom: 32px;
+        margin-bottom: 64px;
         transition:
           box-shadow 0.3s,
-          border-color 0.3s,
-          opacity 0.7s ease,
-          transform 0.7s ease;
-        opacity: 0;
-        transform: translateY(30px);
-        align-items: stretch;
-      }
-      .cipher-block.visible {
-        opacity: 1;
-        transform: translateY(0);
+          border-color 0.3s;
       }
       .cipher-block:hover {
         box-shadow: 0 8px 32px rgba(99, 102, 241, 0.1);
@@ -94,7 +67,7 @@
         background: #fff;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
       }
       .cipher-tag {
         display: inline-block;
@@ -145,7 +118,7 @@
         padding: 36px 28px;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
       }
       .demo-title {
         font-size: 0.72rem;
@@ -171,7 +144,6 @@
         outline: none;
         transition: border-color 0.2s;
         font-family: monospace;
-        box-sizing: border-box;
       }
       .demo-input:focus {
         border-color: #6366f1;
@@ -208,43 +180,6 @@
         white-space: pre;
       }
 
-      /* 버튼 그룹 */
-      .btn-group {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-      }
-      .demo-btn {
-        padding: 7px 14px;
-        border-radius: 6px;
-        font-size: 0.78rem;
-        font-weight: 500;
-        cursor: pointer;
-        border: 1.5px solid #e5e7eb;
-        background: white;
-        color: #374151;
-        transition: all 0.2s;
-      }
-      .demo-btn:hover {
-        border-color: #6366f1;
-        color: #6366f1;
-        background: #eef2ff;
-      }
-      .demo-btn.primary {
-        background: #6366f1;
-        color: white;
-        border-color: #6366f1;
-      }
-      .demo-btn.primary:hover {
-        background: #4f46e5;
-      }
-      .demo-btn.success {
-        background: #f0fdf4;
-        color: #166534;
-        border-color: #bbf7d0;
-      }
-
-      /* 알베르티 디스크 */
       .alberti-disk {
         display: flex;
         justify-content: center;
@@ -272,106 +207,6 @@
         background: white;
         border: 2px solid #6366f1;
         transition: transform 0.4s ease;
-      }
-
-      /* 비즈네르 표 */
-      .vigenere-table-wrap {
-        margin-top: 8px;
-        overflow-x: auto;
-        opacity: 0;
-        transform: translateY(20px);
-        transition:
-          opacity 0.7s ease,
-          transform 0.7s ease;
-      }
-      .vigenere-table-wrap.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .vigenere-table-wrap h3 {
-        font-size: 0.78rem;
-        font-weight: 600;
-        color: #9ca3af;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        margin-bottom: 10px;
-      }
-      .vtable {
-        border-collapse: collapse;
-        font-family: monospace;
-        font-size: 0.7rem;
-      }
-      .vtable td {
-        width: 20px;
-        height: 16px;
-        text-align: center;
-        border: 1px solid #f1f5f9;
-        color: #64748b;
-        transition: background 0.15s;
-      }
-      .vtable td.header {
-        background: #eef2ff;
-        color: #6366f1;
-        font-weight: 700;
-        border-color: #c7d2fe;
-      }
-      .vtable td.highlight {
-        background: #6366f1;
-        color: white;
-        font-weight: 700;
-        border-radius: 2px;
-      }
-      .vtable td.row-hl {
-        background: #eef2ff;
-        color: #4338ca;
-      }
-      .vtable td.col-hl {
-        background: #f5f3ff;
-        color: #4338ca;
-      }
-
-      /* 탭 버튼 */
-      .demo-title {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-      .tab-btns {
-        display: flex;
-        gap: 6px;
-      }
-      .tab-btn {
-        padding: 5px 12px;
-        border-radius: 6px;
-        font-size: 0.75rem;
-        font-weight: 500;
-        cursor: pointer;
-        border: 1.5px solid #e5e7eb;
-        background: white;
-        color: #9ca3af;
-        transition: all 0.2s;
-      }
-      .tab-btn.active {
-        background: #6366f1;
-        color: white;
-        border-color: #6366f1;
-      }
-      .tab-btn:hover:not(.active) {
-        border-color: #6366f1;
-        color: #6366f1;
-      }
-
-      /* 시뮬 패널 */
-      #vigSimPanel {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 10px;
-      }
-      #vigTablePanel {
-        margin-top: 10px;
       }
 
       @media (max-width: 800px) {
@@ -402,10 +237,209 @@
     </nav>
 
     <div class="main-content" id="main-content">
-      <div class="container" id="pageContainer"></div>
+      <div class="container">
+        <div class="page-header">
+          <h1>중세 암호</h1>
+          <p>르네상스 시대의 암호 체계</p>
+        </div>
+
+        <!-- 알베르티 -->
+        <div class="section-divider"><span>01 · 1467년</span></div>
+        <div class="cipher-block">
+          <div class="cipher-info">
+            <span class="cipher-tag">다중 치환 암호</span>
+            <h2>알베르티(원판) 암호</h2>
+            <p class="cipher-year">Leon Battista Alberti · 1467 · 이탈리아</p>
+            <p>
+              르네상스 시대의 건축가·수학자 레온 바리스타 알베르티가 고안한
+              암호. 두 개의 동심원 디스크를 이용해 암호화 키를 주기적으로 바꾸는
+              방식으로, 역사상 최초의 다중 문자 치환 암호로 평가받는다.
+            </p>
+            <p>
+              기존 단순 치환 암호는 알파벳 빈도 분석으로 쉽게 해독됐지만,
+              알베르티의 방식은 같은 글자도 매번 다른 기호로 암호화되어 빈도
+              분석을 무력화했다.
+            </p>
+            <div class="cipher-point">
+              알베르티는 "현대 암호학의 아버지"로 불린다. 그의 다중 알파벳
+              개념은 이후 비즈네르 암호의 직접적인 토대가 되었다.
+            </div>
+          </div>
+          <div class="cipher-demo">
+            <div class="demo-title">🔴 알베르티 디스크 시뮬레이션</div>
+            <div class="alberti-disk">
+              <div class="disk-wrap">
+                <div id="outerDisk"></div>
+                <div id="innerDisk"></div>
+              </div>
+            </div>
+            <div class="demo-label">디스크 회전 (키)</div>
+            <div class="demo-slider-row">
+              <input
+                type="range"
+                min="0"
+                max="25"
+                value="3"
+                id="albertiShift"
+                oninput="updateDisk()"
+              />
+              <span class="demo-slider-val" id="albertiShiftVal">3</span>
+            </div>
+            <div class="demo-label">입력 텍스트</div>
+            <input
+              class="demo-input"
+              type="text"
+              id="albertiInput"
+              placeholder="HELLO"
+              value="HELLO"
+              oninput="encryptAlberti()"
+            />
+            <div class="demo-label">암호화 결과</div>
+            <div class="demo-output-box" id="albertiOutput">KHOOR</div>
+          </div>
+        </div>
+
+        <!-- 비즈네르 -->
+        <div class="section-divider"><span>02 · 1553년</span></div>
+        <div class="cipher-block">
+          <div class="cipher-info">
+            <span class="cipher-tag">키워드 기반 암호</span>
+            <h2>비즈네르 암호</h2>
+            <p class="cipher-year">Blaise de Vigenère · 1553 · 프랑스</p>
+            <p>
+              1553년 이탈리아 암호학자 조반 바티스타 벨라조가 고안한 암호 개념을
+              바탕으로 프랑스 외교관 블레즈 드 비즈네르가 체계화한 암호.
+              키워드를 반복 적용해 각 글자를 서로 다른 방식으로 치환하기 때문에
+              단순 빈도 분석으로는 해독이 불가능하다.
+            </p>
+            <p>
+              키워드가 "KEY"이면 첫 글자는 K(10)만큼, 둘째는 E(4)만큼, 셋째는
+              Y(24)만큼 밀고 반복한다. 같은 평문 글자도 위치에 따라 다른
+              암호문이 된다.
+            </p>
+            <div class="cipher-point">
+              약 300년간 "해독 불가능한 암호(le chiffre indéchiffrable)"로
+              불렸다. 1863년 카시스키가 키 길이를 통계적으로 추정하는 방법을
+              발견해 해독에 성공했다.
+            </div>
+          </div>
+          <div class="cipher-demo">
+            <div class="demo-title">🔑 비즈네르 암호화 체험</div>
+            <div class="demo-label">평문 입력</div>
+            <input
+              class="demo-input"
+              type="text"
+              id="vigInput"
+              placeholder="HELLO"
+              value="HELLO"
+              oninput="encryptVigenere()"
+            />
+            <div class="demo-label">키워드</div>
+            <input
+              class="demo-input"
+              type="text"
+              id="vigKey"
+              placeholder="KEY"
+              value="KEY"
+              oninput="encryptVigenere()"
+            />
+            <div class="demo-label">암호화 결과</div>
+            <div class="demo-output-box" id="vigOutput">RIJVS</div>
+            <div class="demo-label">키 매핑</div>
+            <div
+              class="demo-output-box"
+              id="vigMapping"
+              style="font-size: 0.75rem; color: #6b7280"
+            ></div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <script src="medieval.js"></script>
     <script src="index.js"></script>
+    <script>
+      const ALPHA = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+      function renderDisk() {
+        const outer = document.getElementById('outerDisk')
+        const inner = document.getElementById('innerDisk')
+        outer.innerHTML = ''
+        inner.innerHTML = ''
+        const shift = parseInt(document.getElementById('albertiShift').value)
+
+        for (let i = 0; i < 26; i++) {
+          const angle = (i * 360) / 26 - 90
+          const rad = (angle * Math.PI) / 180
+          const r = 60
+          const el = document.createElement('span')
+          el.style.cssText = `position:absolute;font-size:9px;font-weight:600;font-family:monospace;color:#4338ca;
+          left:${75 + r * Math.cos(rad) - 4}px;top:${75 + r * Math.sin(rad) - 6}px;`
+          el.textContent = ALPHA[i]
+          outer.appendChild(el)
+        }
+
+        for (let i = 0; i < 26; i++) {
+          const angle = (i * 360) / 26 - 90
+          const rad = (angle * Math.PI) / 180
+          const r = 34
+          const el = document.createElement('span')
+          el.style.cssText = `position:absolute;font-size:8px;font-weight:600;font-family:monospace;color:#6366f1;
+          left:${47 + r * Math.cos(rad) - 4}px;top:${47 + r * Math.sin(rad) - 5}px;`
+          el.textContent = ALPHA[(i + shift) % 26]
+          inner.appendChild(el)
+        }
+      }
+
+      function updateDisk() {
+        document.getElementById('albertiShiftVal').textContent =
+          document.getElementById('albertiShift').value
+        renderDisk()
+        encryptAlberti()
+      }
+
+      function encryptAlberti() {
+        const text = document.getElementById('albertiInput').value.toUpperCase()
+        const shift = parseInt(document.getElementById('albertiShift').value)
+        const result = text
+          .split('')
+          .map((c) =>
+            c >= 'A' && c <= 'Z'
+              ? ALPHA[(c.charCodeAt(0) - 65 + shift) % 26]
+              : c,
+          )
+          .join('')
+        document.getElementById('albertiOutput').textContent = result || '—'
+      }
+
+      function encryptVigenere() {
+        const text = document
+          .getElementById('vigInput')
+          .value.toUpperCase()
+          .replace(/[^A-Z]/g, '')
+        const key =
+          document
+            .getElementById('vigKey')
+            .value.toUpperCase()
+            .replace(/[^A-Z]/g, '') || 'A'
+        if (!text) {
+          document.getElementById('vigOutput').textContent = '—'
+          return
+        }
+        let result = '',
+          keyDisplay = ''
+        for (let i = 0; i < text.length; i++) {
+          const k = key[i % key.length].charCodeAt(0) - 65
+          result += ALPHA[(text[i].charCodeAt(0) - 65 + k) % 26]
+          keyDisplay += key[i % key.length]
+        }
+        document.getElementById('vigOutput').textContent = result
+        document.getElementById('vigMapping').textContent =
+          '평문: ' + text + '\n키:   ' + keyDisplay + '\n결과: ' + result
+      }
+
+      renderDisk()
+      encryptAlberti()
+      encryptVigenere()
+    </script>
   </body>
 </html>
